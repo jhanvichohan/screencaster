@@ -1,0 +1,30 @@
+<?php
+function func1($num1, $num2,$to_words=null ){
+    if($num1 > 0  && $num2 > 0 && $to_words==true ){
+        $result = $num1 * $num2;
+        $f = new NumberFormatter("en", NumberFormatter::SPELLOUT);
+        echo $f->format($result)."<br>";
+
+
+    }elseif($num1 > 0  && $num2 > 0 && $to_words==false || $to_words=null  ){
+        $result = $num1 * $num2;
+        echo $result."<br>";
+
+
+    }elseif( !(is_int($num1 ) ) ){
+        echo $num1." is not a number"."<br>";
+    }elseif(!(is_int($num2 ) )){
+        echo $num2." is not a number"."<br>";
+
+    }else{
+        echo "The Two numbers should be Positive !"."<br>";
+    }
+
+
+}
+
+func1(1,3);
+func1(4,5,true);
+func1(1,'ratten',false);
+func1(5,4);
+func1(3.4,5,"$$");
